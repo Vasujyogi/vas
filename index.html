@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script>
+		function validate(){
+			var firstname=document.getElementById("firstname").value;
+			var email=document.getElementById("email").value
+			var mobilenumber=document.getElementById("mobilenumber").value;
+			var male=document.getElementById("male")
+			var female=document.getElementById("female")
+		    var password=document.getElementById("password").value
+			var firstNameCheck=/^[a-zA-Z ]+$/
+			var emailCheck=/^[a-zA-Z0-9.#]+@[a-z]+\.[a-z]{2,3}$/
+			//var mobilenumberCheck=/^[6-9]\d{9}$/
+			var mobilenumberCheck=/^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/
+			var passwordCheck=/^(?=.*?[A-Z])(?=.*?)[a-z])(?=.*?[0-9])(?=.*?[@#$&$]){8}/
+			if(firstname==""||firstname.length<3){
+				alert("Please enter your name")
+				return false;
+			}
+			if(!firstname.match(firstNameCheck)){
+				alert("Name must carry only characters")
+				return false
+			}
+			if (email==""){
+				alert("Email id is mandatory")
+			    return false
+		    }
+			if(!email.match(emailCheck)){
+				alert("Check email");
+			    return false
+			 }	
+			 if (mobilenumber==""){
+			 	alert("Enter mobile number");
+			    return false
+			}
+			if(!mobilenumber.match(mobilenumberCheck)){
+				alert("Provide proper mobile number")
+				return false
+			}
+			if (male.checked==false && female.checked==false){
+				alert("Select your Gender please");
+				retyrn false
+			}
+			if(password==""){
+				alert("please enter your password")
+				return false
+			}
+			if(!pasword.match(passwordCheck)){
+				alert("Password must carry on one Upper case,one lower case ,special symbol")
+			}
+			return true
+	   }		
+	</script>
+</head>
+<body>
+	<h1>Registration Page</h1>
+	<form onsubmit="return validate()">
+		<p><input id="firstname" placeholder="Enter your name"></p>
+		<p><input id="email"placeholder="Enter your Email"></p>
+		<p><input id="mobilenumber"placeholder="Enter your mobile  number"></p>
+		<p><input type="password" placeholder="Enter your password" id="password"></p>
+		<p><input type="radio" name="gender" id="male">Male
+			<input type="radio" name="gender" id="female">Female
+		</p>
+		<button>Sign up</button> 
+	</form>
+</body>
+</html>
